@@ -1,4 +1,3 @@
-// import java.security.KeyPair;
 import scala.math.random
 
 object MainSimulator extends App {
@@ -23,18 +22,6 @@ object MainSimulator extends App {
     client.PrintTransactions()
     client.GenerateBlock()
     client.PrintBlocks()
-}
 
-object CoinUtils {
-  def apply(coins : Array[Coin]) : Unit = {
-    if(!coins.isEmpty)
-    {
-      Console.println(coins.head.ownerId);
-      CoinUtils.apply(coins.tail);
-    }
-  }
-
-  def GenerateAddress() : Array[Char] = {
-    return new Array[Char](32);
-  }
+    val tk = new Transaction(0, 0)
 }
