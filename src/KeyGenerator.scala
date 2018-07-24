@@ -24,13 +24,6 @@ object KeyGenerator {
       val kp = KeyGenerator.GenerateKeyPair();
       val encoder : Base64.Encoder = Base64.getEncoder()
 
-      Console.println("User " + i)
-      Console.println("Modulus:")
-      Console.println(kp.Mod)
-      Console.println("Pub:")
-      Console.println(kp.Pub)
-      Console.println("Prv:")
-      Console.println(kp.Prv)
       users(i) = kp
     }
     return users

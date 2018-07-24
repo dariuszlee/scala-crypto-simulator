@@ -1,16 +1,19 @@
 import scala.collection.mutable.MutableList
 
 class CryptoClient(val address : Int) {
-  private val transactions : MutableList[Transaction] = new MutableList[Transaction]
+  private val transactions : MutableList[TransactionBase] = new MutableList[TransactionBase]
   private var latestBlock : Option[Block] = None
 
-  def ReceiveTransaction(trans : Transaction) : Boolean = {
+  def ReceiveTransaction(trans : TransactionBase) : Boolean = {
     transactions += trans
     return true
   }
 
-  def GetTransactions(pub : BigInt, mod : BigInt) : List[Transaction] = {
-    return List()
+  def GetTransactions(pub : BigInt, mod : BigInt) : List[TransactionBase] = {
+    return latestBlock match {
+      case None => List()
+      case Some(t : Block) => t.FindByPubKey(mod, pub)
+    }
   }
 
   def GenerateBlock() : Boolean = {
