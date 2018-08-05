@@ -8,7 +8,7 @@ case class Block(val transactions : List[TransactionBase], val previousBlock : O
     block match {
       case None => return None
       case Some(Block(trans, nextBlock)) => {
-        val findResult = trans.find((x) => x.GetId() == id) 
+        val findResult = trans.find((x) => x.Id == id) 
         return findResult match {
           case None => return Find(id, nextBlock)
           case Some(_) => findResult

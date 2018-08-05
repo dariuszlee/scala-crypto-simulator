@@ -1,12 +1,34 @@
 import scala.collection.mutable.MutableList
+import scala.util.{ Success, Failure }
 
 class CryptoClient(val address : Int) {
   private val transactions : MutableList[TransactionBase] = new MutableList[TransactionBase]
   private var latestBlock : Option[Block] = None
 
-  def ReceiveTransaction(trans : TransactionBase) : Boolean = {
-    transactions += trans
-    return true
+  def ReceiveTransaction(trans : TransactionBase) : Boolean = trans match {
+    case TransactionFirst(mod, pub) => {
+      transactions += trans
+      return true
+    }
+    case Transaction(mod, pub, prev, sig) => 
+      return latestBlock match {
+        case None => {
+          return false
+        }
+        case Some(b) => b.Find(prev) match {
+          case Some(t) => {
+            TransactionUtilities.Verify(sig, t.key, t.modulus) match {
+              case Success(v) => {
+                if(v)
+                  transactions += trans
+                return v
+              }
+              case Failure(f) => false
+            }
+          }
+          case None => false
+      }
+    }
   }
 
   def GetTransactions(pub : BigInt, mod : BigInt) : List[TransactionBase] = {
