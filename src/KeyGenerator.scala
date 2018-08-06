@@ -75,6 +75,6 @@ object KeyGenerator {
     val pubKey = kf.generatePublic(pubKeySpec)
     val rsa = Signature.getInstance("SHA1withRSA")
     rsa.initVerify(pubKey)
-    return rsa.verify(toVerify.toByteArray)
+    return Try(rsa.verify(toVerify.toByteArray))
   }
 }

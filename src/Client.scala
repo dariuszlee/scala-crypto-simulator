@@ -17,7 +17,7 @@ class CryptoClient(val address : Int) {
         }
         case Some(b) => b.Find(prev) match {
           case Some(t) => {
-            TransactionUtilities.Verify(sig, t.key, t.modulus) match {
+            KeyGenerator.Verify(sig, t.key, t.modulus) match {
               case Success(v) => {
                 if(v)
                   transactions += trans

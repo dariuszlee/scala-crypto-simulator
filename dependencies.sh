@@ -1,0 +1,12 @@
+DEPENDENCIES+=/home/dzlyy/crypto-simul/target/akka-protobuf_2.12-2.5.14.jar:
+DEPENDENCIES+=/home/dzlyy/crypto-simul/target/scala-parser-combinators_2.12-1.1.0.jar:
+DEPENDENCIES+=/home/dzlyy/crypto-simul/target/reactive-streams-1.0.2.jar:
+DEPENDENCIES+=/home/dzlyy/crypto-simul/target/scala-java8-compat_2.12-0.8.0.jar:
+DEPENDENCIES+=/home/dzlyy/crypto-simul/target/config-1.3.3.jar:
+DEPENDENCIES+=/home/dzlyy/crypto-simul/target/scala-library-2.10.3.jar:
+DEPENDENCIES+=/home/dzlyy/crypto-simul/target/akka-http_2.12-10.1.3.jar:
+DEPENDENCIES+=/home/dzlyy/crypto-simul/target/akka-parsing_2.12-10.1.3.jar:
+DEPENDENCIES+=/home/dzlyy/crypto-simul/target/akka-stream_2.12-2.5.14.jar:
+DEPENDENCIES+=/home/dzlyy/crypto-simul/target/ssl-config-core_2.12-0.2.3.jar:
+DEPENDENCIES+=/home/dzlyy/crypto-simul/target/akka-actor_2.12-2.5.14.jar:
+DEPENDENCIES+=/home/dzlyy/crypto-simul/target/akka-http-core_2.12-10.1.3.jar:
