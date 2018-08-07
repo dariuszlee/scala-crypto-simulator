@@ -26,6 +26,10 @@ fi
 BuildDependencies
 cd $BIN
 scalac $SRC/*.scala -cp $DEPENDENCIES
+if [[ ! $? -eq 0 ]]; then
+	exit 1
+fi
+
 cd $HOME
 scala -cp $DEPENDENCIES $RUN_CLASS
 ## END ##
